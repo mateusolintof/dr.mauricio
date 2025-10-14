@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <style>
+      /* This file proxies the official logo hosted on the client's site.
+         Keeping it as an external reference avoids embedding large assets
+         and ensures we always use the most up-to-date version. */
+      svg { background: transparent; }
+    </style>
+  </defs>
+  <image href="https://drmauricioernesto.com.br/wp-content/uploads/2020/12/Dr-Mauricio-Ernesto-Logo-Color-Light.svg"
+         x="0" y="0" width="1200" height="400"/>
+</svg>
+
