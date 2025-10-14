@@ -66,3 +66,23 @@ body {
 .hero-kicker {
   @apply uppercase tracking-widest text-lg md:text-xl font-extrabold text-prime;
 }
+
+/* React Flow — estilos de nós temáticos (cores do tema) */
+.flow-node {
+  border: 1.5px solid color-mix(in oklab, var(--color-prime) 40%, white);
+  background: color-mix(in oklab, var(--color-prime) 6%, white);
+  border-radius: 12px;
+}
+.flow-node--primary {
+  border-color: var(--color-prime);
+  background: color-mix(in oklab, var(--color-prime) 14%, white);
+}
+.flow-node--decision {
+  border-color: var(--color-prime-accent);
+  background: color-mix(in oklab, var(--color-prime-accent) 18%, white);
+}
+.flow-node--output {
+  border-color: color-mix(in oklab, var(--color-prime) 60%, white);
+  background: color-mix(in oklab, var(--color-prime) 4%, white);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 6px 16px rgba(0,0,0,0.04);
+}

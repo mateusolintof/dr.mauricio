@@ -22,14 +22,14 @@ function nodesAndEdges(kind: FlowKind): { nodes: Node[]; edges: Edge[] } {
     case "agendamento": {
       const common = { sourcePosition: Position.Right, targetPosition: Position.Left } as const;
       const nodes: Node[] = [
-        { id: "lead", position: { x: 0, y: 120 }, data: { label: "LEAD CHEGA VIA OMNICHANNEL" }, type: "input", ...common },
-        { id: "ia", position: { x: 260, y: 120 }, data: { label: "AGENTE IA – Filtragem do lead" }, style: { background: "#eaf4ff", borderColor: "#2563eb" }, ...common },
-        { id: "esp", position: { x: 520, y: 120 }, data: { label: "Especialidades" }, ...common },
-        { id: "plano", position: { x: 760, y: 40 }, data: { label: "Plano de Saúde" }, ...common },
-        { id: "particular", position: { x: 760, y: 200 }, data: { label: "Particular" }, ...common },
-        { id: "qualif", position: { x: 1000, y: 120 }, data: { label: "Qualificação" }, ...common },
-        { id: "disp", position: { x: 1240, y: 120 }, data: { label: "Agenda Unificada (Tasy + Particular)" }, ...common },
-        { id: "agend", position: { x: 1480, y: 120 }, data: { label: "Agendamento + Registro no CRM (HITL se necessário)" }, type: "output", ...common },
+        { id: "lead", position: { x: 0, y: 120 }, data: { label: "Lead chega via WhatsApp / LP" }, type: "input", className: "flow-node", ...common },
+        { id: "ia", position: { x: 260, y: 120 }, data: { label: "SDR IA – Qualificação do lead" }, className: "flow-node flow-node--primary", ...common },
+        { id: "esp", position: { x: 520, y: 120 }, data: { label: "Especialidades" }, className: "flow-node", ...common },
+        { id: "plano", position: { x: 760, y: 40 }, data: { label: "Plano de Saúde" }, className: "flow-node", ...common },
+        { id: "particular", position: { x: 760, y: 200 }, data: { label: "Particular" }, className: "flow-node", ...common },
+        { id: "qualif", position: { x: 1000, y: 120 }, data: { label: "Qualificação" }, className: "flow-node", ...common },
+        { id: "disp", position: { x: 1240, y: 120 }, data: { label: "Agenda Unificada (Tasy + Particular)" }, className: "flow-node", ...common },
+        { id: "agend", position: { x: 1480, y: 120 }, data: { label: "Agendamento + Registro no CRM (HITL se necessário)" }, type: "output", className: "flow-node flow-node--output", ...common },
       ];
       const edges: Edge[] = [
         { id: "a1", source: "lead", target: "ia", animated: true },
@@ -46,15 +46,15 @@ function nodesAndEdges(kind: FlowKind): { nodes: Node[]; edges: Edge[] } {
     case "triagem-noshow": {
       const common = { sourcePosition: Position.Right, targetPosition: Position.Left } as const;
       const nodes: Node[] = [
-        { id: "agenda", position: { x: 0, y: 120 }, data: { label: "Agenda (próximas consultas)" }, type: "input", ...common },
-        { id: "d2", position: { x: 260, y: 40 }, data: { label: "Lembrete D‑2" }, ...common },
-        { id: "d1", position: { x: 260, y: 120 }, data: { label: "Lembrete D‑1" }, ...common },
-        { id: "d2h", position: { x: 260, y: 200 }, data: { label: "Lembrete D‑2h" }, ...common },
-        { id: "confirma", position: { x: 520, y: 120 }, data: { label: "Confirma presença?" }, style: { background: "#eaf4ff", borderColor: "#2563eb" }, ...common },
-        { id: "ok", position: { x: 780, y: 60 }, data: { label: "Confirmado" }, type: "output", ...common },
-        { id: "reagendar", position: { x: 780, y: 140 }, data: { label: "Reagendar" }, type: "output", ...common },
-        { id: "cancel", position: { x: 520, y: 260 }, data: { label: "Cancelamento detectado" }, ...common },
-        { id: "fila", position: { x: 780, y: 260 }, data: { label: "Fila de espera notificada" }, type: "output", ...common },
+        { id: "agenda", position: { x: 0, y: 120 }, data: { label: "Agenda (próximas consultas)" }, type: "input", className: "flow-node", ...common },
+        { id: "d2", position: { x: 260, y: 40 }, data: { label: "Lembrete D‑2" }, className: "flow-node", ...common },
+        { id: "d1", position: { x: 260, y: 120 }, data: { label: "Lembrete D‑1" }, className: "flow-node", ...common },
+        { id: "d2h", position: { x: 260, y: 200 }, data: { label: "Lembrete D‑2h" }, className: "flow-node", ...common },
+        { id: "confirma", position: { x: 520, y: 120 }, data: { label: "Confirma presença?" }, className: "flow-node flow-node--decision", ...common },
+        { id: "ok", position: { x: 780, y: 60 }, data: { label: "Confirmado" }, type: "output", className: "flow-node flow-node--output", ...common },
+        { id: "reagendar", position: { x: 780, y: 140 }, data: { label: "Reagendar" }, type: "output", className: "flow-node flow-node--output", ...common },
+        { id: "cancel", position: { x: 520, y: 260 }, data: { label: "Cancelamento detectado" }, className: "flow-node", ...common },
+        { id: "fila", position: { x: 780, y: 260 }, data: { label: "Fila de espera notificada" }, type: "output", className: "flow-node flow-node--output", ...common },
       ];
       const edges: Edge[] = [
         { id: "n1", source: "agenda", target: "d2", animated: true },
@@ -73,15 +73,15 @@ function nodesAndEdges(kind: FlowKind): { nodes: Node[]; edges: Edge[] } {
     case "faq": {
       const common = { sourcePosition: Position.Right, targetPosition: Position.Left } as const;
       const nodes: Node[] = [
-        { id: "pac", position: { x: 0, y: 100 }, data: { label: "Paciente" }, type: "input", ...common },
-        { id: "canal", position: { x: 200, y: 100 }, data: { label: "WhatsApp" }, ...common },
-        { id: "faq", position: { x: 420, y: 100 }, data: { label: "IA – FAQ Inteligente" }, style: { background: "#eaf4ff", borderColor: "#2563eb" }, ...common },
-        { id: "proced", position: { x: 660, y: 20 }, data: { label: "Procedimentos" }, ...common },
-        { id: "recuperacao", position: { x: 660, y: 80 }, data: { label: "Recuperação" }, ...common },
-        { id: "valores", position: { x: 660, y: 140 }, data: { label: "Valores / Convênios" }, ...common },
-        { id: "sobre", position: { x: 660, y: 200 }, data: { label: "Sobre o Médico" }, ...common },
-        { id: "local", position: { x: 660, y: 260 }, data: { label: "Localização e Horários" }, ...common },
-        { id: "escalonamento", position: { x: 900, y: 100 }, data: { label: "Escala p/ humano se necessário" }, type: "output", ...common },
+        { id: "pac", position: { x: 0, y: 100 }, data: { label: "Paciente" }, type: "input", className: "flow-node", ...common },
+        { id: "canal", position: { x: 200, y: 100 }, data: { label: "WhatsApp" }, className: "flow-node", ...common },
+        { id: "faq", position: { x: 420, y: 100 }, data: { label: "IA – FAQ Inteligente" }, className: "flow-node flow-node--primary", ...common },
+        { id: "proced", position: { x: 660, y: 20 }, data: { label: "Procedimentos" }, className: "flow-node", ...common },
+        { id: "recuperacao", position: { x: 660, y: 80 }, data: { label: "Recuperação" }, className: "flow-node", ...common },
+        { id: "valores", position: { x: 660, y: 140 }, data: { label: "Valores / Convênios" }, className: "flow-node", ...common },
+        { id: "sobre", position: { x: 660, y: 200 }, data: { label: "Sobre o Médico" }, className: "flow-node", ...common },
+        { id: "local", position: { x: 660, y: 260 }, data: { label: "Localização e Horários" }, className: "flow-node", ...common },
+        { id: "escalonamento", position: { x: 900, y: 100 }, data: { label: "Escala p/ humano se necessário" }, type: "output", className: "flow-node flow-node--output", ...common },
       ];
       const edges: Edge[] = [
         { id: "f1", source: "pac", target: "canal", animated: true },
