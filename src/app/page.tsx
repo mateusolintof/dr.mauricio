@@ -144,43 +144,43 @@ export default function Home() {
       <section className="section bg-slate-50" id="solucoes">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="section-title">Nossas Soluções</h2>
-          <p className="subtitle mt-2">Agentes de IA, CRM, Dashboard e Análise de Dados.</p>
+          <p className="subtitle mt-2">Soluções integradas para qualificar, agendar, reduzir no‑show e dar visibilidade total (CRM + Agenda Unificada + Dashboard).</p>
 
           <div className="mt-8">
             <div className="card">
-              <div className="font-bold text-prime">4 IA&apos;s que trabalham 24/7 pelo seu comercial</div>
+              <div className="font-bold text-prime">4 soluções para o consultório do {preparedFor}</div>
             </div>
             <div className="mt-6 grid md:grid-cols-2 gap-6">
               <div className="card">
-                <div className="font-semibold text-prime flex items-center gap-2"><CalendarCheck2 className="h-5 w-5"/> AGENTES DE AGENDAMENTO INTELIGENTE</div>
+                <div className="font-semibold text-prime flex items-center gap-2"><CalendarCheck2 className="h-5 w-5"/> SDR Qualificador + Agendamento (WhatsApp)</div>
                 <ul className="mt-2 text-slate-700 space-y-1">
-                  <li>• Atende pelo WhatsApp 24/7</li>
-                  <li>• Agenda consultas automaticamente</li>
-                  <li>• Qualifica leads na hora</li>
+                  <li>• Atendimento 24/7 com resposta imediata</li>
+                  <li>• Qualificação automática (particular × convênio)</li>
+                  <li>• Validação de convênios e proposta de horários</li>
                 </ul>
               </div>
               <div className="card">
-                <div className="font-semibold text-prime flex items-center gap-2"><BellRing className="h-5 w-5"/> AGENTES DE ANTI NO-SHOW</div>
+                <div className="font-semibold text-prime flex items-center gap-2"><MessageSquare className="h-5 w-5"/> FAQ Inteligente (Educacional)</div>
                 <ul className="mt-2 text-slate-700 space-y-1">
-                  <li>• Envia lembretes automáticos</li>
-                  <li>• Confirma presença dos pacientes</li>
-                  <li>• Preenche vagas canceladas</li>
+                  <li>• Procedimentos, recuperação e valores/convênios</li>
+                  <li>• Sobre o médico, localização e horários</li>
+                  <li>• Convida a agendar ao final (conversão)</li>
                 </ul>
               </div>
               <div className="card">
-                <div className="font-semibold text-prime flex items-center gap-2"><MessageSquare className="h-5 w-5"/> AGENTES DE CENTRAL DE INFORMAÇÕES (FAQ + EXAMES)</div>
+                <div className="font-semibold text-prime flex items-center gap-2"><BellRing className="h-5 w-5"/> Anti No‑Show + Follow‑Up</div>
                 <ul className="mt-2 text-slate-700 space-y-1">
-                  <li>• Responde dúvidas instantaneamente</li>
-                  <li>• Educa sobre procedimentos</li>
-                  <li>• Qualifica interesse comercial</li>
+                  <li>• Lembretes D‑2, D‑1 e D‑2h + confirmação</li>
+                  <li>• Reagendamento automático e fila de espera</li>
+                  <li>• Follow‑up pós‑consulta (NPS, retornos, exames)</li>
                 </ul>
               </div>
               <div className="card">
-                <div className="font-semibold text-prime flex items-center gap-2"><Stethoscope className="h-5 w-5"/> AGENTES DE PRÉ-TRIAGEM E PREPARAÇÃO CIRURGICA</div>
+                <div className="font-semibold text-prime flex items-center gap-2"><Stethoscope className="h-5 w-5"/> CRM + Agenda Unificada + Dashboard</div>
                 <ul className="mt-2 text-slate-700 space-y-1">
-                  <li>• Coleta de histórico médico completo</li>
-                  <li>• Orientações pré-operatórias personalizadas</li>
-                  <li>• Checklist de preparo</li>
+                  <li>• Unifica Hospital IOP (Tasy) + particular</li>
+                  <li>• Funis, tags e histórico completo no CRM</li>
+                  <li>• KPIs, funil e relatórios executivos</li>
                 </ul>
               </div>
             </div>
@@ -238,14 +238,14 @@ export default function Home() {
             <div className="card flex flex-col justify-between">
               <div>
                 <div className="font-semibold text-prime flex items-center gap-2"><KanbanSquare className="h-5 w-5"/> CRM Comercial</div>
-                <div className="mt-2 text-slate-700 text-sm">Funis de atendimento com status, campos personalizados e tags por especialidade</div>
+                <div className="mt-2 text-slate-700 text-sm">Funis com estágios, histórico de conversas, tags por procedimento e origem do lead</div>
               </div>
               <button className="mt-4 btn-primary" onClick={() => setModal({ type: "crm" })}>Ver exemplo</button>
             </div>
             <div className="card flex flex-col justify-between">
               <div>
                 <div className="font-semibold text-prime flex items-center gap-2"><BarChart3 className="h-5 w-5"/> Dashboard</div>
-                <div className="mt-2 text-slate-700 text-sm">Indicadores de conversão, no‑show, funis e especialidades</div>
+                <div className="mt-2 text-slate-700 text-sm">Visão geral, funil completo e agendamentos com KPIs e previsões de no‑show</div>
               </div>
               <button className="mt-4 btn-primary" onClick={() => setModal({ type: "dashboard" })}>Ver exemplo</button>
             </div>
