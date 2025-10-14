@@ -29,7 +29,7 @@ function nodesAndEdges(kind: FlowKind): { nodes: Node[]; edges: Edge[] } {
         { id: "particular", position: { x: 760, y: 200 }, data: { label: "Particular" }, ...common },
         { id: "qualif", position: { x: 1000, y: 120 }, data: { label: "Qualificação" }, ...common },
         { id: "disp", position: { x: 1240, y: 120 }, data: { label: "Agenda Unificada (Tasy + Particular)" }, ...common },
-        { id: "agend", position: { x: 1480, y: 120 }, data: { label: "Agendamento / Escala humano" }, type: "output", ...common },
+        { id: "agend", position: { x: 1480, y: 120 }, data: { label: "Agendamento + Registro no CRM (HITL se necessário)" }, type: "output", ...common },
       ];
       const edges: Edge[] = [
         { id: "a1", source: "lead", target: "ia", animated: true },
@@ -46,52 +46,51 @@ function nodesAndEdges(kind: FlowKind): { nodes: Node[]; edges: Edge[] } {
     case "triagem-noshow": {
       const common = { sourcePosition: Position.Right, targetPosition: Position.Left } as const;
       const nodes: Node[] = [
-        { id: "ia", position: { x: 0, y: 140 }, data: { label: "AGENTE IA" }, type: "input", ...common },
-        { id: "canal", position: { x: 220, y: 140 }, data: { label: "WhatsApp – fala com o paciente" }, ...common },
-        { id: "follow", position: { x: 460, y: 40 }, data: { label: "Follow-up de confirmação" }, ...common },
-        { id: "triagem", position: { x: 460, y: 240 }, data: { label: "Triagem paciente" }, ...common },
-        { id: "24h", position: { x: 720, y: 0 }, data: { label: "24h após confirmação" }, ...common },
-        { id: "72h", position: { x: 720, y: 80 }, data: { label: "72h antes do agendamento" }, ...common },
-        { id: "confirma", position: { x: 980, y: 40 }, data: { label: "Confirma presença" }, ...common },
-        { id: "confirmado", position: { x: 1240, y: 0 }, data: { label: "Confirmado" }, type: "output", ...common },
-        { id: "reagendar", position: { x: 1240, y: 80 }, data: { label: "Reagendar paciente" }, type: "output", ...common },
-        { id: "coleta", position: { x: 720, y: 240 }, data: { label: "Coleta de dados" }, ...common },
-        { id: "checklist", position: { x: 980, y: 240 }, data: { label: "Checklist de preparo" }, ...common },
-        { id: "orient", position: { x: 1240, y: 240 }, data: { label: "Orientações pré-operatórias" }, type: "output", ...common },
+        { id: "agenda", position: { x: 0, y: 120 }, data: { label: "Agenda (próximas consultas)" }, type: "input", ...common },
+        { id: "d2", position: { x: 260, y: 40 }, data: { label: "Lembrete D‑2" }, ...common },
+        { id: "d1", position: { x: 260, y: 120 }, data: { label: "Lembrete D‑1" }, ...common },
+        { id: "d2h", position: { x: 260, y: 200 }, data: { label: "Lembrete D‑2h" }, ...common },
+        { id: "confirma", position: { x: 520, y: 120 }, data: { label: "Confirma presença?" }, style: { background: "#eaf4ff", borderColor: "#2563eb" }, ...common },
+        { id: "ok", position: { x: 780, y: 60 }, data: { label: "Confirmado" }, type: "output", ...common },
+        { id: "reagendar", position: { x: 780, y: 140 }, data: { label: "Reagendar" }, type: "output", ...common },
+        { id: "cancel", position: { x: 520, y: 260 }, data: { label: "Cancelamento detectado" }, ...common },
+        { id: "fila", position: { x: 780, y: 260 }, data: { label: "Fila de espera notificada" }, type: "output", ...common },
       ];
       const edges: Edge[] = [
-        { id: "t1", source: "ia", target: "canal", animated: true },
-        { id: "t2", source: "canal", target: "follow", animated: true },
-        { id: "t3", source: "canal", target: "triagem", animated: true },
-        { id: "t4", source: "follow", target: "24h", animated: true },
-        { id: "t5", source: "follow", target: "72h", animated: true },
-        { id: "t6", source: "24h", target: "confirma", animated: true },
-        { id: "t7", source: "72h", target: "confirma", animated: true },
-        { id: "t8", source: "confirma", target: "confirmado", animated: true },
-        { id: "t9", source: "confirma", target: "reagendar", animated: true },
-        { id: "t10", source: "triagem", target: "coleta", animated: true },
-        { id: "t11", source: "coleta", target: "checklist", animated: true },
-        { id: "t12", source: "checklist", target: "orient", animated: true },
+        { id: "n1", source: "agenda", target: "d2", animated: true },
+        { id: "n2", source: "agenda", target: "d1", animated: true },
+        { id: "n3", source: "agenda", target: "d2h", animated: true },
+        { id: "n4", source: "d2", target: "confirma", animated: true },
+        { id: "n5", source: "d1", target: "confirma", animated: true },
+        { id: "n6", source: "d2h", target: "confirma", animated: true },
+        { id: "n7", source: "confirma", target: "ok", animated: true },
+        { id: "n8", source: "confirma", target: "reagendar", animated: true },
+        { id: "n9", source: "confirma", target: "cancel", animated: true },
+        { id: "n10", source: "cancel", target: "fila", animated: true },
       ];
       return { nodes, edges };
     }
     case "faq": {
       const common = { sourcePosition: Position.Right, targetPosition: Position.Left } as const;
       const nodes: Node[] = [
-        { id: "pac", position: { x: 0, y: 80 }, data: { label: "Paciente" }, type: "input", ...common },
-        { id: "canal", position: { x: 200, y: 80 }, data: { label: "WhatsApp" }, ...common },
-        { id: "faq", position: { x: 420, y: 80 }, data: { label: "IA – FAQ Inteligente" }, style: { background: "#eaf4ff", borderColor: "#2563eb" }, ...common },
-        { id: "convenios", position: { x: 660, y: 0 }, data: { label: "Convênios" }, ...common },
-        { id: "preparo", position: { x: 660, y: 80 }, data: { label: "Preparo Exames" }, ...common },
-        { id: "valores", position: { x: 660, y: 160 }, data: { label: "Valores / Particulares" }, ...common },
-        { id: "escalonamento", position: { x: 900, y: 80 }, data: { label: "Escala p/ humano se necessário" }, type: "output", ...common },
+        { id: "pac", position: { x: 0, y: 100 }, data: { label: "Paciente" }, type: "input", ...common },
+        { id: "canal", position: { x: 200, y: 100 }, data: { label: "WhatsApp" }, ...common },
+        { id: "faq", position: { x: 420, y: 100 }, data: { label: "IA – FAQ Inteligente" }, style: { background: "#eaf4ff", borderColor: "#2563eb" }, ...common },
+        { id: "proced", position: { x: 660, y: 20 }, data: { label: "Procedimentos" }, ...common },
+        { id: "recuperacao", position: { x: 660, y: 80 }, data: { label: "Recuperação" }, ...common },
+        { id: "valores", position: { x: 660, y: 140 }, data: { label: "Valores / Convênios" }, ...common },
+        { id: "sobre", position: { x: 660, y: 200 }, data: { label: "Sobre o Médico" }, ...common },
+        { id: "local", position: { x: 660, y: 260 }, data: { label: "Localização e Horários" }, ...common },
+        { id: "escalonamento", position: { x: 900, y: 100 }, data: { label: "Escala p/ humano se necessário" }, type: "output", ...common },
       ];
       const edges: Edge[] = [
         { id: "f1", source: "pac", target: "canal", animated: true },
         { id: "f2", source: "canal", target: "faq", animated: true },
-        { id: "f3", source: "faq", target: "convenios", animated: true },
-        { id: "f4", source: "faq", target: "preparo", animated: true },
+        { id: "f3", source: "faq", target: "proced", animated: true },
+        { id: "f4", source: "faq", target: "recuperacao", animated: true },
         { id: "f5", source: "faq", target: "valores", animated: true },
+        { id: "f7", source: "faq", target: "sobre", animated: true },
+        { id: "f8", source: "faq", target: "local", animated: true },
         { id: "f6", source: "faq", target: "escalonamento", animated: true },
       ];
       return { nodes, edges };

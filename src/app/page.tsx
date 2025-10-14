@@ -222,9 +222,9 @@ export default function Home() {
           <h3 className="mt-8 font-bold text-prime">AGENTES DE IA</h3>
           <div className="mt-4 grid md:grid-cols-3 gap-6">
             {[
-              { key: "agendamento" as FlowKind, title: "Agendamento Inteligente" },
-              { key: "triagem-noshow" as FlowKind, title: "Pré-Triagem + Anti No‑Show" },
-              { key: "faq" as FlowKind, title: "Central de Informações" },
+              { key: "agendamento" as FlowKind, title: "SDR Qualificador + Agendamento" },
+              { key: "faq" as FlowKind, title: "FAQ Inteligente (Educacional)" },
+              { key: "triagem-noshow" as FlowKind, title: "Anti No‑Show + Follow‑Up" },
             ].map((s) => (
               <div key={s.key} className="card flex flex-col justify-between">
                 <div className="font-semibold text-prime">{s.title}</div>
