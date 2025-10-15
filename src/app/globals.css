@@ -4,18 +4,11 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a; /* slate-900 */
-  /* Paleta padrão neutra (substitua pelas cores do cliente) */
+  color-scheme: light; /* força tema claro */
   /* Dr. Maurício — identidade (navy + azul claro) */
   --prime-primary: #041e42; /* navy escuro */
   --prime-accent: #41b6e6;  /* azul claro */
   --prime-dark: #041e42;    /* para texto em botões/acento */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #e5e7eb; /* slate-200 */
-  }
 }
 
 @theme inline {
