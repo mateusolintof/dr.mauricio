@@ -289,11 +289,11 @@ export default function Home() {
             <div className="card hover:shadow-md transition-shadow">
               <div className="text-xl md:text-2xl font-bold text-prime mb-2 flex items-center gap-2"><Trophy className="h-5 w-5 text-prime"/> O que você conquista</div>
               <div className="text-slate-700 space-y-2 mb-4">
-                <div>📉 <strong>No‑show: 25% → 10%</strong> (−60%)</div>
-                <div>📈 <strong>Conversão: 15% → 39%</strong> (+160%)</div>
-                <div>🧮 <strong>Consultas/mês: 675 → 1.750</strong> (+1.075)</div>
-                <div>🚫 <strong>Leads perdidos: ~2.250 → ~810</strong> (−64%)</div>
-                <div>💰 <strong>Receita: R$ 270k → R$ 700k</strong> (+R$ 430k/mês)</div>
+                <div>🕘 Atendimento 24/7 no WhatsApp — sem perda de leads fora do horário</div>
+                <div>🤖 Qualificação e FAQ automatizados — recepção foca no que importa</div>
+                <div>📅 Agenda unificada (IOP Tasy + particular) — menos conflitos e encaixes rápidos</div>
+                <div>🔔 Confirmações e reagendamentos automáticos — redução de faltas e ocupação melhor</div>
+                <div>🔄 Follow‑up estruturado — retornos/exames e acompanhamento pós‑procedimento</div>
               </div>
               <button className="btn-primary" onClick={() => setModal({ type: "conquistas" })}>Ver todos os ganhos →</button>
             </div>
@@ -1159,35 +1159,30 @@ function ConquistasModalContent() {
   return (
     <div className="p-4 md:p-6 space-y-6">
       <div className="bg-emerald-50 border border-emerald-200 p-6 rounded-lg">
-        <h3 className="text-2xl font-bold text-emerald-900 mb-4">Ganhos Esperados (base doc de arquitetura)</h3>
+        <h3 className="text-2xl font-bold text-emerald-900 mb-4">Ganhos Operacionais</h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="bg-white p-4 rounded-lg">
-            <div className="font-bold text-emerald-700 mb-2">📈 Conversão</div>
-            <div className="text-sm text-slate-700">Antes: 15% • Depois: 39%</div>
-            <div className="text-emerald-700 font-semibold mt-2">Ganho relativo: +160%</div>
+            <div className="font-bold text-emerald-700 mb-2">🕘 Atendimento 24/7</div>
+            <div className="text-sm text-slate-700">Leads fora do horário recebem resposta imediata e são encaminhados</div>
           </div>
           <div className="bg-white p-4 rounded-lg">
-            <div className="font-bold text-emerald-700 mb-2">🧮 Consultas/mês</div>
-            <div className="text-sm text-slate-700">Antes: 675 • Depois: 1.750</div>
-            <div className="text-emerald-700 font-semibold mt-2">Δ: +1.075</div>
+            <div className="font-bold text-emerald-700 mb-2">🤖 Automação de tarefas</div>
+            <div className="text-sm text-slate-700">Qualificação, dúvidas frequentes e confirmações automatizadas</div>
           </div>
           <div className="bg-white p-4 rounded-lg">
-            <div className="font-bold text-emerald-700 mb-2">📉 No‑Show</div>
-            <div className="text-sm text-slate-700">Antes: 25% • Depois: 10%</div>
-            <div className="text-emerald-700 font-semibold mt-2">Redução: −60%</div>
+            <div className="font-bold text-emerald-700 mb-2">📅 Agenda Unificada</div>
+            <div className="text-sm text-slate-700">IOP (Tasy) + particular — menos conflitos e sobreposições</div>
           </div>
           <div className="bg-white p-4 rounded-lg">
-            <div className="font-bold text-emerald-700 mb-2">🚫 Leads perdidos</div>
-            <div className="text-sm text-slate-700">Antes: ~2.250/mês • Depois: ~810/mês</div>
-            <div className="text-emerald-700 font-semibold mt-2">Redução: −64%</div>
+            <div className="font-bold text-emerald-700 mb-2">🔔 Confirmações e Reagendamentos</div>
+            <div className="text-sm text-slate-700">Lembretes D‑1 e D‑2h; fila de espera para vagas liberadas</div>
           </div>
           <div className="bg-white p-4 rounded-lg md:col-span-2">
-            <div className="font-bold text-emerald-700 mb-2">💰 Receita mensal</div>
-            <div className="text-sm text-slate-700">Antes: R$ 270.000 • Depois: R$ 700.000</div>
-            <div className="text-emerald-700 font-semibold mt-2">Ganho: +R$ 430.000/mês</div>
+            <div className="font-bold text-emerald-700 mb-2">🔄 Follow‑up e Continuidade</div>
+            <div className="text-sm text-slate-700">Retornos, exames e pós‑procedimento sob controle</div>
           </div>
         </div>
-        <div className="text-xs text-slate-600 mt-4">Estimativas ilustrativas; variam conforme mix de canais, sazonalidade e agenda disponível.</div>
+        <div className="text-xs text-slate-600 mt-4">Observação: resultados variam conforme mix de casos, volume e agenda disponível.</div>
       </div>
     </div>
   );
