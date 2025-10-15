@@ -1,4 +1,4 @@
-Proposta — Dr. Maurício Ernesto (Ortopedia e Cirurgia do Joelho)
+Proposta — Dr. Maurício Ernesto • Agentes de IA para Atendimento Comercial
 
 Stack: Next.js 15 (App Router) + Tailwind v4 + React Flow + Framer Motion + Lucide.
 
@@ -23,7 +23,7 @@ Estrutura (onde customizado)
 - `public/branding/logo.svg` — logo do Dr. Maurício (referência ao SVG oficial do site).
 
 Seções (resumo)
-- Hero → “Agentes de IA para Ortopedia e Cirurgia do Joelho”.
+- Hero → “Agentes de IA para Atendimento Comercial”.
 - Desafio Atual → do doc (volume ~150/dia, agendas desconectadas Tasy+particular, zero visibilidade, follow‑up).
 - Nossas Soluções → SDR Qualificador, FAQ, Anti No‑Show, CRM + Agenda Unificada + Dashboard.
 - Fluxo e Ferramentas → fluxos (Agendamento, Pré‑triagem/No‑show, FAQ) e ferramentas (CRM, Dashboard).
@@ -43,4 +43,4 @@ Observações
 
 Identidade visual
 - Cores definidas em `src/app/globals.css`: `--prime-primary: #041e42` e `--prime-accent: #41b6e6`.
-- Logo em `public/branding/logo.svg` (proxy para o SVG oficial do site do Dr. Maurício).
+- Logo em `public/branding/logo.svg` (SVG oficial incluído localmente).
