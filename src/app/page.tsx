@@ -77,7 +77,7 @@ export default function Home() {
           <div>
             <span className="hero-kicker">PROPOSTA DE SOLUÇÃO COM IA</span>
             <h1 className="mt-3 text-5xl md:text-7xl font-bold text-prime leading-tight">
-              Agentes de IA para Ortopedia e Cirurgia do Joelho
+              Agentes de IA para Atendimento Comercial
             </h1>
             <p className="subtitle mt-4">
               Automação ponta a ponta para captação, agendamento, confirmação, follow-up e
